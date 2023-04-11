@@ -12,6 +12,8 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool pickup;
+		public bool throwing;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +45,16 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnPickup(InputValue value)
+		{
+			PickInput(value.isPressed);
+		}
+
+		public void OnThrow(InputValue value)
+		{
+			ThrowInput(value.isPressed);
+		}
 #endif
 
 
@@ -65,7 +77,15 @@ namespace StarterAssets
 		{
 			sprint = newSprintState;
 		}
-		
+		public void PickInput(bool newSprintState)
+		{
+			pickup = newSprintState;
+		}
+		public void ThrowInput(bool newSprintState)
+		{
+			throwing = newSprintState;
+		}
+
 		private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
