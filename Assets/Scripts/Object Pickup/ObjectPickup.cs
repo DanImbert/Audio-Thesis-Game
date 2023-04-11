@@ -10,7 +10,7 @@ public class ObjectPickup : MonoBehaviour
     [SerializeField] private float _throwForce = 10f;
 
     private DroppableComponent _heldDroppable;
-
+    public Camera playerCamera;
 
     private StarterAssets.StarterAssetsInputs _input;
     InputAction _pickupAction;
@@ -51,7 +51,7 @@ public class ObjectPickup : MonoBehaviour
     {
         if (_heldDroppable != null)
         {
-            Transform main = Camera.main.transform;
+            Transform main = playerCamera.transform;
             // Move the held object in front of the player
             Vector3 heldObjectPosition = main.position + main.forward * _pickupDistance - main.up * _pickupDistance * .2f;
             _heldDroppable.rigidbody.MovePosition(heldObjectPosition);
@@ -78,7 +78,7 @@ public class ObjectPickup : MonoBehaviour
         {
             // Perform a raycast to check if there's an object within pickup distance
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, _pickupDistance) &&
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, _pickupDistance) &&
                 hit.collider.TryGetComponent(out DroppableComponent droppable))
             {
                 _heldDroppable = droppable;
