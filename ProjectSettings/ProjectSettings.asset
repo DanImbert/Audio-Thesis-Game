@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 23
-  productGUID: fe9786a250ddc9d4aa8e47c5f59d4162
+  productGUID: 1ef59f578e13c6e4cad35022ddb2300b
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: ESD_AudioGame
+  productName: ESD_AudioGame_20
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -145,7 +145,6 @@ PlayerSettings:
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
   enableFrameTimingStats: 0
-  enableOpenGLProfilerGPURecorders: 1
   useHDRDisplay: 0
   D3DHDRBitDepth: 0
   m_ColorGamuts: 00000000
@@ -162,7 +161,7 @@ PlayerSettings:
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 22
+  AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -218,7 +217,6 @@ PlayerSettings:
   iOSLaunchScreeniPadCustomStoryboardPath: 
   iOSDeviceRequirements: []
   iOSURLSchemes: []
-  macOSURLSchemes: []
   iOSBackgroundModes: 0
   iOSMetalForceHardShadows: 0
   metalEditorSupport: 1
@@ -236,7 +234,7 @@ PlayerSettings:
   appleEnableProMotion: 0
   shaderPrecisionModel: 0
   clonedFromGUID: eafcc02f21eb7004fab0d21791dfb3b8
-  templatePackageId: com.unity.template.gaming-first-person@2.1.0
+  templatePackageId: com.unity.template.gaming-first-person@1.1.0
   templateDefaultScene: Assets/Scenes/Playground.unity
   useCustomMainManifest: 0
   useCustomLauncherManifest: 0
@@ -287,7 +285,6 @@ PlayerSettings:
   - m_BuildTarget: WebGL
     m_StaticBatching: 0
     m_DynamicBatching: 0
-  m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: MacStandaloneSupport
     m_GraphicsJobs: 0
@@ -323,7 +320,7 @@ PlayerSettings:
   m_BuildTargetGraphicsAPIs:
   - m_BuildTarget: AndroidPlayer
     m_APIs: 150000000b000000
-    m_Automatic: 1
+    m_Automatic: 0
   - m_BuildTarget: iOSSupport
     m_APIs: 10000000
     m_Automatic: 1
@@ -339,8 +336,6 @@ PlayerSettings:
     m_Devices:
     - Oculus
     - OpenVR
-  m_DefaultShaderChunkSizeInMB: 16
-  m_DefaultShaderChunkCount: 0
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
   openGLRequireES32: 0
@@ -352,7 +347,6 @@ PlayerSettings:
   m_BuildTargetGroupLightmapEncodingQuality: []
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetNormalMapEncoding: []
-  m_BuildTargetDefaultTextureCompressionFormat: []
   playModeTestRunnerEnabled: 0
   runPlayModeTestAsEditModeTest: 0
   actionOnDotNetUnhandledException: 1
@@ -371,7 +365,6 @@ PlayerSettings:
   switchScreenResolutionBehavior: 2
   switchUseCPUProfiler: 0
   switchUseGOLDLinker: 0
-  switchLTOSetting: 0
   switchApplicationID: 0x01004b9000490000
   switchNSODependencies: 
   switchTitleNames_0: 
@@ -601,9 +594,8 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   webGLDecompressionFallback: 0
-  webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Standalone: STARTER_ASSETS_PACKAGES_CHECKED
+    1: STARTER_ASSETS_PACKAGES_CHECKED
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
@@ -613,8 +605,8 @@ PlayerSettings:
   suppressCommonWarnings: 1
   allowUnsafeCode: 0
   useDeterministicCompilation: 1
+  useReferenceAssemblies: 1
   enableRoslynAnalyzers: 1
-  selectedPlatform: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
   gcIncremental: 0
@@ -693,7 +685,7 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  activeInputHandler: 1
+  activeInputHandler: 2
   windowsGamepadBackendHint: 0
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
@@ -702,6 +694,4 @@ PlayerSettings:
   organizationId: 
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
-  playerDataPath: 
-  forceSRGBBlit: 1
   virtualTexturingSupportEnabled: 0

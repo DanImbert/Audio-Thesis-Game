@@ -74,6 +74,19 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+
+		// Item variables
+		public Transform holdPosition;
+		private GameObject heldItem;
+
+		// References
+		private Rigidbody rb;
+
+		//Audio Triggers
+		private AudioSource audioSource;
+		public AudioClip pickupSound;
+		public AudioClip dropSound;
+
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -108,6 +121,10 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			rb = GetComponent<Rigidbody>();
+			audioSource = GetComponent<AudioSource>();
+			audioSource.playOnAwake = false;
 		}
 
 		private void Update()
@@ -115,7 +132,51 @@ namespace StarterAssets
 			JumpAndGravity();
 			GroundedCheck();
 			Move();
+
+			// Pick up item if in range and not holding an item
+			if (Input.GetKeyDown(KeyCode.E) && heldItem == null)
+			{
+				Collider[] itemsInRange = Physics.OverlapSphere(transform.position, 2.0f);
+				foreach (Collider item in itemsInRange)
+				{
+					if (item.CompareTag("Item"))
+					{
+						heldItem = item.gameObject;
+						heldItem.transform.position = holdPosition.position;
+						heldItem.transform.parent = holdPosition;
+						heldItem.GetComponent<Rigidbody>().isKinematic = true;
+						break;
+						
+					}
+					
+				}
+
+				if (heldItem != null && pickupSound != null)
+				{
+					AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+				}
+
+				
+
+				
+			}
+
+			// Drop held item if holding an item
+			if (Input.GetKeyDown(KeyCode.Q) && heldItem != null)
+			{
+				heldItem.GetComponent<Rigidbody>().isKinematic = false;
+				heldItem.transform.parent = null;
+				heldItem = null;
+				if (dropSound != null)
+				{
+					AudioSource.PlayClipAtPoint(dropSound, transform.position);
+				}
+			}
+
+
 		}
+
+
 
 		private void LateUpdate()
 		{
@@ -264,5 +325,9 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
+
+
+
+
 	}
 }
