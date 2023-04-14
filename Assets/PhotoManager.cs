@@ -71,6 +71,13 @@ public class PhotoManager : MonoBehaviour
 
         photo.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
 
+        //TODO this would run through all objects that the camera can see
+       Ray look =  Camera.main.ViewportPointToRay(transform.position + transform.forward, Camera.MonoOrStereoscopicEye.Mono);
+        foreach (var hit in Physics.RaycastAll(look,100))
+        {
+            Debug.Log(hit.transform.name);
+        }
+
         photo.Apply();
 
         /*byte[] bytes = photo.EncodeToPNG();
@@ -103,6 +110,8 @@ public class PhotoManager : MonoBehaviour
 
     private void DeletePhoto(int index)
     {
+        photos.RemoveAt(index);
+
         Texture2D photoToDelete = photos[index];
         photos[index] = null;
         inventoryTextures[index] = null;
@@ -110,8 +119,8 @@ public class PhotoManager : MonoBehaviour
         inventorySlots[index].SetActive(false);
         numPhotosTaken--;
 
-        string filePath = Application.persistentDataPath + "/photo" + index + ".png";
-        File.Delete(filePath);
+  //      string filePath = Application.persistentDataPath + "/photo" + index + ".png";
+    //    File.Delete(filePath);
 
         for (int i = index + 1; i <= numPhotosTaken; i++)
         {
