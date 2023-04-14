@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: 619e305f5165a9946b7f72464e44ca4a, type: 3}
   m_Sun: {fileID: 2114283754330233425}
-  m_IndirectSpecularColor: {r: 0.029152213, g: 0.064445764, b: 0.12695098, a: 1}
+  m_IndirectSpecularColor: {r: 0.029152056, g: 0.06444542, b: 0.12695055, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1621,7 +1621,8 @@ MonoBehaviour:
   - {fileID: 183842968}
   - {fileID: 1213674013}
   - {fileID: 940613823}
-  inventoryIcons: []
+  inventoryIcons:
+  - {fileID: 27283242}
   inventoryTextures: []
 --- !u!4 &1014733046
 Transform:

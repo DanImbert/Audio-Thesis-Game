@@ -22,7 +22,7 @@ public class PhotoManager : MonoBehaviour
     private bool isTakingPhoto = false;
     private int maxPhotos = 10;
     private int numPhotosTaken = 0;
-    private Texture2D[] photos = new Texture2D[10];
+    private List<Texture2D> photos = new List<Texture2D>();
 
     void Start()
     {
@@ -73,32 +73,32 @@ public class PhotoManager : MonoBehaviour
 
         photo.Apply();
 
-        byte[] bytes = photo.EncodeToPNG();
+        /*byte[] bytes = photo.EncodeToPNG();
 
         string filePath = Application.persistentDataPath + "/photo" + numPhotosTaken + ".png";
-        File.WriteAllBytes(filePath, bytes);
+        File.WriteAllBytes(filePath, bytes);*/
 
-        photos[numPhotosTaken] = photo;
+        photos.Add( photo);
 
         numPhotosTaken++;
 
-        Debug.Log("Photo saved at " + filePath);
+        Debug.Log("Photo saved");
 
         isTakingPhoto = false;
 
         if (numPhotosTaken <= maxPhotos)
         {
-            inventoryTextures[numPhotosTaken - 1] = photo;
+            //inventoryTextures[numPhotosTaken - 1] = photo;
             inventoryIcons[numPhotosTaken - 1].texture = photo;
             inventorySlots[numPhotosTaken - 1].SetActive(true);
         }
-        else
+        /*else
         {
             DeletePhoto(0);
             inventoryTextures[maxPhotos - 1] = photo;
             inventoryIcons[maxPhotos - 1].texture = photo;
             inventorySlots[maxPhotos - 1].SetActive(true);
-        }
+        }*/
     }
 
     private void DeletePhoto(int index)
