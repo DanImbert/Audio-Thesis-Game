@@ -22,7 +22,9 @@ public class PhotoManager : MonoBehaviour
     private bool isTakingPhoto = false;
     private int maxPhotos = 10;
     private int numPhotosTaken = 0;
-    private List<Texture2D> photos = new List<Texture2D>();
+
+    public GameObject cameraOverlay;
+    public InventoryManager inMan;
 
     void Start()
     {
@@ -85,7 +87,7 @@ public class PhotoManager : MonoBehaviour
         string filePath = Application.persistentDataPath + "/photo" + numPhotosTaken + ".png";
         File.WriteAllBytes(filePath, bytes);*/
 
-        photos.Add( photo);
+        inMan.PushTexture( photo);
 
         numPhotosTaken++;
 
@@ -110,10 +112,10 @@ public class PhotoManager : MonoBehaviour
 
     private void DeletePhoto(int index)
     {
-        photos.RemoveAt(index);
+ //       photos.RemoveAt(index);
 
-        Texture2D photoToDelete = photos[index];
-        photos[index] = null;
+   //     Texture2D photoToDelete = photos[index];
+     //   photos[index] = null;
         inventoryTextures[index] = null;
         inventoryIcons[index].texture = null;
         inventorySlots[index].SetActive(false);
@@ -124,7 +126,7 @@ public class PhotoManager : MonoBehaviour
 
         for (int i = index + 1; i <= numPhotosTaken; i++)
         {
-            photos[i - 1] = photos[i];
+       //     photos[i - 1] = photos[i];
             inventoryTextures[i - 1] = inventoryTextures[i];
             inventoryIcons[i - 1].texture = inventoryIcons[i].texture;
             string oldPath = Application.persistentDataPath + "/photo" + i + ".png";
