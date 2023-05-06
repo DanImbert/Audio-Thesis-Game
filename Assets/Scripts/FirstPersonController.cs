@@ -148,7 +148,14 @@ namespace StarterAssets
 						break;
 						
 					}
-					
+					else if (item.CompareTag("Readable") && item.TryGetComponent(out ReadableComponent readable))//Placeholder, move to own component
+                    {
+						Debug.Log($"Reading Readable {readable.name}");
+						readable.OnPlayerRead();
+
+					}
+
+
 				}
 
 				if (heldItem != null && pickupSound != null)
